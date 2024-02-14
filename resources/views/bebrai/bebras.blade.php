@@ -1,0 +1,1 @@
+<h1 style="color:{{$color1}};">Hello from controler</h1>
