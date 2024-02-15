@@ -14,7 +14,14 @@ class BebrasController extends Controller
         return view('bebrai.bebras',['color1'=>$color]);
     }
 
-    
+    public function atimti($one,$two){
+
+
+        
+
+        return view('bebrai.minus',['rez'=>$one-$two]);
+    }
+
 
 
 

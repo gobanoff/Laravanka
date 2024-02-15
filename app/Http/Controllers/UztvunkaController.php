@@ -14,7 +14,8 @@ class UztvunkaController extends Controller
      */
     public function index()
     {
-        return 'mmmmmm';
+        $uztvunkos = Uztvunka::all();
+        return view('uztvunka.index', ['uztvunkos' => $uztvunkos]);
     }
 
     /**
@@ -28,11 +29,11 @@ class UztvunkaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUztvunkaRequest $request)
+    public function store()
     {
         $uztvunka = new Uztvunka;
-        $uztvunka-> juodi = 0;
-        $uztvunka-> rudi = 0;
+        $uztvunka->juodi = 0;
+        $uztvunka->rudi = 0;
         $uztvunka->save();
 
         return redirect()->route('uztvunka-index');

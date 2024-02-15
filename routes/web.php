@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('say-hello/{color}', [BebrasController::class, 'hello']);
-//Route::get('minus/{one}/{two}', [BebrasController::class, 'atimti']);
+Route::get('minus/{one}/{two}', [BebrasController::class, 'atimti']);
 
-Route::get('uztvunka', [UztvunkaController::class, 'index'])->name('uztvunka-index');
-
+Route::get('/uztvunka', [UztvunkaController::class, 'index'])->name('uztvunka-index');
+Route::get('uztvunka/edit/{Uztvunka}', [UztvunkaController::class, 'edit'])->name('uztvunka-edit');
 Route::get('uztvunka/create', [UztvunkaController::class, 'create'])->name('uztvunka-create');
 Route::post('uztvunka/store', [UztvunkaController::class, 'store'])->name('uztvunka-store');
 

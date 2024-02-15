@@ -1,0 +1,1 @@
+<h3 style="color:blue;font-size:50px;">{{$rez}}</h3>
