@@ -6,24 +6,21 @@ use Illuminate\Http\Request;
 
 class BebrasController extends Controller
 {
-    public function hello($color){
+    public function hello($color)
+    {
 
 
         //dd($color);
 
-        return view('bebrai.bebras',['color1'=>$color]);
+        return view('bebrai.bebras', ['color1' => $color]);
     }
 
-    public function atimti($one,$two){
+    public function atimti($one, $two)
+    {
 
 
-        
 
-        return view('bebrai.minus',['rez'=>$one-$two]);
+
+        return view('bebrai.minus', ['rez' => $one - $two]);
     }
-
-
-
-
-
 }

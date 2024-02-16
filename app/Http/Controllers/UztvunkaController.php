@@ -12,16 +12,22 @@ class UztvunkaController extends Controller
      * Display a listing of the resource.
      * 
      */
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     public function index()
     {
         $uztvunkos = Uztvunka::all();
         return view('uztvunka.index', ['uztvunkos' => $uztvunkos]);
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
 
 
@@ -68,6 +74,7 @@ class UztvunkaController extends Controller
      */
     public function update(UpdateUztvunkaRequest $request, Uztvunka $uztvunka)
     {
+        //dd($request);
         if (isset($request->add)) {
             $uztvunka->juodi += null !== $request->j ? $request->j : 0;
             $uztvunka->rudi += null !== $request->r ? $request->r : 0;
