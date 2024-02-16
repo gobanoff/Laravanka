@@ -18,6 +18,13 @@ class UztvunkaController extends Controller
         return view('uztvunka.index', ['uztvunkos' => $uztvunkos]);
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -52,7 +59,8 @@ class UztvunkaController extends Controller
      */
     public function edit(Uztvunka $uztvunka)
     {
-        //
+        //dd($uztvunka);
+        return view('uztvunka.edit', ['uztvunka' => $uztvunka]);
     }
 
     /**
@@ -60,7 +68,15 @@ class UztvunkaController extends Controller
      */
     public function update(UpdateUztvunkaRequest $request, Uztvunka $uztvunka)
     {
-        //
+        if (isset($request->add)) {
+            $uztvunka->juodi += null !== $request->j ? $request->j : 0;
+            $uztvunka->rudi += null !== $request->r ? $request->r : 0;
+        } else {
+            $uztvunka->juodi -= null !== $request->j ? $request->j : 0;
+            $uztvunka->rudi -= null !== $request->r ? $request->r : 0;
+        }
+        $uztvunka->save();
+        return redirect()->route('uztvunka-index');
     }
 
     /**
@@ -68,6 +84,7 @@ class UztvunkaController extends Controller
      */
     public function destroy(Uztvunka $uztvunka)
     {
-        //
+        $uztvunka->delete();
+        return redirect()->route('uztvunka-index');
     }
 }

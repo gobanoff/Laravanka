@@ -21,11 +21,11 @@ Route::get('say-hello/{color}', [BebrasController::class, 'hello']);
 Route::get('minus/{one}/{two}', [BebrasController::class, 'atimti']);
 
 Route::get('/uztvunka', [UztvunkaController::class, 'index'])->name('uztvunka-index');
-Route::get('uztvunka/edit/{Uztvunka}', [UztvunkaController::class, 'edit'])->name('uztvunka-edit');
+Route::get('uztvunka/edit/{uztvunka}', [UztvunkaController::class, 'edit'])->name('uztvunka-edit');
 Route::get('uztvunka/create', [UztvunkaController::class, 'create'])->name('uztvunka-create');
 Route::post('uztvunka/store', [UztvunkaController::class, 'store'])->name('uztvunka-store');
-
-
+Route::post('uztvunka/update/{uztvunka}', [UztvunkaController::class, 'update'])->name('uztvunka-save');
+Route::post('uztvunka/delete/{uztvunka}', [UztvunkaController::class, 'destroy'])->name('uztvunka-delete');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
